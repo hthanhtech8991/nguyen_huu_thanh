@@ -3,7 +3,7 @@ import { getFirstChars } from "../utils/helper";
 import SelectOption from "./SelectOption";
 interface SelectCurrencyProps {
     dataSource?: Array<{ value: string; label: string, code: string }>;
-    selectedCountry: { code: string, name: string, value: string };
+    selectedCountry: { code: string, label: string, value: string };
     handleSelectCountry: (countryCode: string) => void;
     open: boolean;
     setOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -18,6 +18,7 @@ const SelectCurrency = ({
 }: SelectCurrencyProps) => {
     return (
         <Popover
+        autoAdjustOverflow={true}
             content={<SelectOption
                 dataSource={dataSource}
                 onSelect={handleSelectCountry}
@@ -35,7 +36,7 @@ const SelectCurrency = ({
                     width={30}
                     preview={false}
                 />
-                <h5>{selectedCountry.name}</h5>
+                <h5 className="text-zinc-500">{selectedCountry.label}</h5>
             </div>
         </Popover>
     );

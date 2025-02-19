@@ -1,6 +1,11 @@
 @import "tailwindcss";
 
 #root {
+    width: 100%;
     margin: 0 auto;
     text-align: center;
 }
+
+.responsive-text {
+    font-size: clamp(2rem, calc((32 / 16* 1rem) +(1vw - .2rem)*(100*((40 / 16) -(32 / 16)) /(26.875 - 20))), 2.5rem);
+  }
